@@ -1,24 +1,24 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import Layout from '@/Layout';
-import { routes } from '@/config/routes';
-import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Layout from "@/Layout";
+import { routes } from "@/config/routes";
+import "react-toastify/dist/ReactToastify.css";
+import React from "react";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          {routes.map(route => (
-            <Route 
-              key={route.id} 
-              path={route.path} 
-              element={<route.component />} 
+      <Layout>
+        <Routes>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={route.element}
             />
           ))}
-          <Route index element={<routes[0].component />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </Layout>
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -32,11 +32,11 @@ function App() {
         theme="light"
         className="z-[9999]"
         progressStyle={{
-          background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)'
+          background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)"
         }}
       />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
