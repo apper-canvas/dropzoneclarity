@@ -8,7 +8,8 @@ import Button from '@/components/atoms/Button';
 import Text from '@/components/atoms/Text';
 import ProgressBar from '@/components/atoms/ProgressBar';
 import ApperIcon from '@/components/ApperIcon';
-import { uploadFileService, uploadSessionService } from '@/services';
+import uploadFileService from '@/services/api/uploadFileService';
+import uploadSessionService from '@/services/api/uploadSessionService';
 
 const FileUploader = () => {
   const [files, setFiles] = useState([]);
